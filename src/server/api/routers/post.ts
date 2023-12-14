@@ -21,7 +21,7 @@ export const postRouter = createTRPCRouter({
       });
     }),
     getAll: publicProcedure.query(({ ctx }) => {
-      return ctx.db.post.findMany();
+      return ctx.db.postp.findMany();
     }),
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.post.findFirst({
