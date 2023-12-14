@@ -8,9 +8,9 @@ import { SignInButton} from "@clerk/nextjs";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 export default async function Home() {
-  const hello = await api.post.hello.query({ text: "from tRPC" });
   const session = await getServerAuthSession();
-  
+  const data  = await api.post.getAll.query();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       <div>
@@ -20,6 +20,9 @@ export default async function Home() {
         <SignedIn>
           <UserButton afterSignOutUrl="/"/>
         </SignedIn>
+      </div>
+      <div>
+        {data?.map((post) => {<div key = {post.id}>{post.name}</div>})}
       </div>
     </main>
   );
