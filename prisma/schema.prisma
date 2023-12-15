@@ -28,12 +28,12 @@ model Post {
     @@index([createdById])
 }
 
-model Postp {
-    id          String  @id @default(cuid())
-    createdAt   DateTime @default(now())
-
-    content     String @db.Text
-    authorId    String
+model Message {
+    id           String   @id @default(cuid())
+    content      String
+    authorId     String
+    createdAt    DateTime @default(now())
+    
 
     @@index([authorId])
 }

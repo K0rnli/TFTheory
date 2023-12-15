@@ -1,0 +1,29 @@
+[33mcommit 78781d6a2a73ddf90b8811b9a32ddce151285d81[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Nhat-Tam <Nuguyin@gmail.com>
+Date:   Thu Dec 14 13:54:19 2023 -0600
+
+    db update
+
+[33mcommit 8ca44aedc7e578a33d8c22a65052e972071036bd[m
+Author: Nhat-Tam <Nuguyin@gmail.com>
+Date:   Thu Dec 14 13:26:39 2023 -0600
+
+    Add db Postp
+
+[33mcommit 2e5a211a3972e4171d55dd09dc04c595c627cbe4[m
+Author: Nhat-Tam <Nuguyin@gmail.com>
+Date:   Thu Dec 14 12:50:55 2023 -0600
+
+    Add auth
+
+[33mcommit 825e9042acc16bfdf283a65f0fd58055ff0cc434[m
+Author: Nhat-Tam <Nuguyin@gmail.com>
+Date:   Sun Nov 26 13:01:14 2023 -0600
+
+    Move to mysql
+
+[33mcommit 297c851dd493da69dc29d92d1500b5ae81ba609b[m
+Author: Nhat-Tam <Nuguyin@gmail.com>
+Date:   Sun Nov 26 12:34:47 2023 -0600
+
+    inital commit

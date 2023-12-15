@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { string, z } from "zod";
 
 import {
   createTRPCRouter,
@@ -8,6 +8,6 @@ import {
 
 export const postpRouter = createTRPCRouter({
     getAll: publicProcedure.query(({ ctx }) => {
-      return ctx.db.postp.findMany();
+        return ctx.db.message.findMany();
     })
 });
