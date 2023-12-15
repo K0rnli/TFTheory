@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { ClerkProvider } from '@clerk/nextjs'
 
 import { TRPCReactProvider } from "~/trpc/react";
+import SideBar from "./_components/SideBar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,7 +28,10 @@ export default function RootLayout({
         <body className={`font-sans ${inter.variable}`}>
           <TRPCReactProvider cookies={cookies().toString()}>
             <ClerkProvider>
-              {children}
+              <SideBar/>
+              <div className='ml-16'>
+                {children}
+              </div>
             </ClerkProvider>
           </TRPCReactProvider>
         </body>

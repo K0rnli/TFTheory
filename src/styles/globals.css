@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-light-shade: 247 248 248;
+    --color-light-accent: 140 149 149;
+    --color-main: 168 175 182;
+    --color-dark-accent: 132 142 154;
+    --color-dark-shade: 65 77 97;
+  }
+  :root[data-theme="light"]{
+    --color-light-shade: 255 255 255;
+    --color-light-accent: 188 194 220;
+    --color-main: 113 127 240;
+    --color-dark-accent: 62 74 171;
+    --color-dark-shade: 13 27 111;
+  }
+  :root[data-theme="dark"]{
+    --color-light-shade: 15 19 24;
+    --color-light-accent: 47 45 45;
+    --color-main: 95 90 88;
+    --color-dark-accent: 139 140 142;
+    --color-dark-shade: 172 171 173;
+  }
+  :root[data-theme="cool"]{
+    --color-light-shade: 255 255 255;
+    --color-light-accent: 218 225 233;
+    --color-main: 182 210 235;
+    --color-dark-accent: 141 179 221;
+    --color-dark-shade: 94 147 183;
+  }
+}
+:root{
+  @apply bg-light-shade
+}
+@layer components {
+
+  .sidebar-icon-menu {
+    @apply  relative flex items-center justify-center h-14 w-16 mx-auto bg-light-accent text-dark-shade hover:bg-main
+            transition-all duration-100 ease-linear;
+  }
+  
+  .sidebar-icon {
+    @apply  relative flex items-center justify-center h-14 w-16 mx-auto bg-light-accent text-dark-shade hover:bg-main
+            transition-all duration-100 ease-linear;
+  }
+
+  .sidebar-menu {
+    @apply  absolute flex-col w-0 min-w-max left-16 h-auto shadow-xl top-0 bg-white
+            text-xs font-bold text-center justify-center
+            transition-all duration-100 scale-100 origin-left;
+  }
+
+  .sidebar-link {
+    @apply  flex items-center justify-center w-0 h-14  mx-auto bg-light-accent text-dark-shade hover:bg-main whitespace-nowrap
+            transition-all duration-100 scale-100 origin-left overflow-hidden;
+  }
+
+  .overlay {
+    @apply w-screen h-screen top-0 left-0 right-0 bottom-0 fixed bg-gray-800 bg-opacity-75
+  }
+}
