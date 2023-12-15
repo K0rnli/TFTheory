@@ -1,9 +1,13 @@
+
 import React from 'react';
 import {IoCloseSharp} from 'react-icons/io5'
-const Modal = ({ isVisible, onClose, title, children }: { isVisible: boolean, onClose: Function, title: String, children: React.ReactNode}) => {
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Modal = ({ isVisible, onClose, title, children }: { isVisible: boolean, onClose: Function, title: string, children: React.ReactNode}) => {
     if (!isVisible) return null;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleClose = (e: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         if( e.target.id === 'wrapper') onClose();
     }
     return (

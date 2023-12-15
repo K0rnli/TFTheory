@@ -6,7 +6,6 @@ import { FaFire, FaBug, FaLightbulb, FaBookOpen, FaTools } from 'react-icons/fa'
 import { GiPodium } from 'react-icons/gi';
 import { Fragment, useState } from 'react';
 import Modal from './Modal';
-import Switch from './Switch';
 
 const SideBar = () => {
     const menuItems = [
