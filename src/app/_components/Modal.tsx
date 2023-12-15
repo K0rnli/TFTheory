@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 
 import React from 'react';
 import {IoCloseSharp} from 'react-icons/io5'
