@@ -4,7 +4,11 @@ import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
 import CreatePostWizard from "./_components/CreatePostWizard";
-import { RouterOutputs } from "~/trpc/shared";
+import { type RouterOutputs } from "~/trpc/shared";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import Image from "next/image";
+dayjs.extend(relativeTime);
 
 type PostWithUser = RouterOutputs["postp"]["getAll"][number]
 const PostView = (props: PostWithUser) => {
@@ -12,9 +16,15 @@ const PostView = (props: PostWithUser) => {
   const {post, author} = props
 
   return (
-    <div className="border-b border-dark-accent p-8" key = {post.id}>
-      <img src = {author.profilePicture}></img>
-      {post.content}
+    <div className="border-b border-dark-accent p-4 gap-3 flex" key = {post.id}>
+      <Image src = {author.profilePicture} alt="Profile Image" className="h-14 w-14 rounded-full" width={56} height={56}/>
+      <div className="flex flex-col">
+        <div className="flex gap-1">
+          <span>{`@${author.username}`}</span>
+          <span>{` ·  ${dayjs(post.createdAt).fromNow()}`}</span>
+        </div>
+          <span>{post.content}</span>
+      </div>
     </div>
   )
 }
