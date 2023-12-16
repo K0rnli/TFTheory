@@ -45,6 +45,11 @@ export const postpRouter = createTRPCRouter({
       content: z.string().min(1).max(256),
     })).mutation(async ({ctx, input}) => {
       const user = await currentUser();
+      if(!user?.id) {
+        throw new TRPCError({ 
+        code: "INTERNAL_SERVER_ERROR",
+        message: "User for post not found",
+      })}
       const authorId = user.id;
 
       const post = await ctx.db.message.create({
