@@ -1,4 +1,4 @@
-import { clerkClient } from "@clerk/nextjs";
+import { clerkClient, currentUser } from "@clerk/nextjs";
 import type { User } from "@clerk/nextjs/api";
 import { TRPCError } from "@trpc/server";
 import { string, z } from "zod";
@@ -38,5 +38,23 @@ export const postpRouter = createTRPCRouter({
           post,
           author,
         }});
+    }),
+
+    create: protectedProcedure.input(z.object({
+      content: z.string().min(1).max(256),
+    })).mutation(async ({ctx, input}) => {
+      const user = await currentUser();
+      const authorId = user.id;
+
+      const post = await ctx.db.message.create({
+        data: {
+          authorId,
+          content: input.content,
+        }
+      });
+
+      return post;
+
+
     })
 });

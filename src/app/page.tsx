@@ -30,13 +30,14 @@ const PostView = (props: PostWithUser) => {
 }
 
 export default async function Home() {
-  const session = getServerAuthSession();
+  const session = await getServerAuthSession();
   const data  = await api.postp.getAll.query();
+  
   return (
     <main className="flex h-full justify-center">
       <div className="h-full w-full border-x md:max-w-2xl border-dark-accent">
         <div className="border-b border-dark-accent p-4">
-          <CreatePostWizard/>
+          <CreatePost/>
         </div>
         <div className="flex flex-col">
           {[...data,]?.map((fullPost) => (
