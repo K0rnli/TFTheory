@@ -3,7 +3,6 @@ import Link from "next/link";
 import { CreatePost } from "~/app/_components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
-import CreatePostWizard from "./_components/CreatePostWizard";
 import { type RouterOutputs } from "~/trpc/shared";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
