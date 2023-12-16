@@ -5,6 +5,9 @@ import { BsPlus, BsGearFill, BsFillPersonFill } from 'react-icons/bs';
 import { FaFire, FaBug, FaLightbulb, FaBookOpen, FaTools } from 'react-icons/fa';
 import { GiPodium } from 'react-icons/gi';
 import { Fragment, useState } from 'react';
+import { UserButton } from "@clerk/nextjs";
+import { SignInButton} from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Modal from './Modal';
 
 const SideBar = () => {
@@ -39,9 +42,22 @@ const SideBar = () => {
                         </div>
                     </div>
                 ))}
-
-                <div className="sidebar-icon absolute bottom-0 group hover:cursor-pointer" onClick={() => setModal(true)}>
-                    <BsGearFill size="22" />
+                <div className='absolute bottom-0'>
+                    <SignedOut>
+                        <SignInButton>
+                            <div className="sidebar-icon relative bottom-0 group hover:cursor-pointer">
+                                <BsFillPersonFill size='22'/>
+                            </div>
+                        </SignInButton>
+                    </SignedOut>
+                    <SignedIn>
+                        <div className="sidebar-icon relative bottom-0 group hover:cursor-pointer">
+                            <UserButton afterSignOutUrl="/"/>
+                        </div>
+                    </SignedIn>
+                    <div className="sidebar-icon relative bottom-0 group hover:cursor-pointer" onClick={() => setModal(true)}>
+                        <BsGearFill size="22" />
+                    </div>
                 </div>
             </div>
             <Modal isVisible={showModal} onClose={() => setModal(false)} title="Settings">
