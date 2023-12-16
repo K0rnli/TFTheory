@@ -17,6 +17,7 @@ export const postpRouter = createTRPCRouter({
     getAll: publicProcedure.query(async ({ ctx }) => {
         const posts = await ctx.db.message.findMany({
           take: 100,
+          orderBy: [{createdAt: "desc"}],
         });
         const users = (
           await clerkClient.users.getUserList({
