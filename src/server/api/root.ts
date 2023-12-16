@@ -1,4 +1,4 @@
-import { postRouter } from "~/server/api/routers/post";
+
 import { postpRouter } from "~/server/api/routers/postp";
 import { createTRPCRouter } from "~/server/api/trpc";
 
